@@ -2,14 +2,22 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const WelcomePage = () => {
+    const navigation = useNavigation();
+
+    const handleLoginPress = () => {
+        navigation.navigate('SignIn');
+    };
+
     const carouselContents = [
-        'Content 1: Placeholder text about the company Content 1: Placeholder text about the company Content 1: Placeholder text about the company Content 1: Placeholder text about the company',
-        'Content 2: Placeholder text about the company Content 2: Placeholder text about the company Content 2: Placeholder text about the company Content 2: Placeholder text about the company',
-        'Content 3: Placeholder text about the company Content 3: Placeholder text about the company Content 3: Placeholder text about the company Content 3: Placeholder text about the company',
-        'Content 4: Placeholder text about the company Content 4: Placeholder text about the company Content 4: Placeholder text about the company Content 4: Placeholder text about the company',
-        'Content 5: Placeholder text about the company Content 5: Placeholder text about the company Content 5: Placeholder text about the company Content 5: Placeholder text about the company',
+
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
     ];
 
     return (
@@ -38,7 +46,7 @@ const WelcomePage = () => {
                 ))}
             </Swiper>
 
-            <TouchableOpacity style={styles.loginButton} >
+            <TouchableOpacity style={styles.loginButton} onPress={handleLoginPress}>
                 <Text style={styles.loginButtonText}>Log In</Text>
             </TouchableOpacity>
 
@@ -61,7 +69,7 @@ const styles = StyleSheet.create({
     carouselItem: {
         flex: 1,
         alignItems: 'center',
-        marginTop: 50,
+        marginTop: 30,
         padding: 30,
         backgroundColor: 'white',
     },

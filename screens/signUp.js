@@ -1,7 +1,5 @@
-import {React, useState} from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-// import Picker from '@react-native-picker/picker'
 
 const SignUpPage = () => {
     const navigation = useNavigation();
@@ -10,6 +8,7 @@ const SignUpPage = () => {
         // Handle registration logic
         console.log('Register button pressed');
     };
+
     const goToSignIn = () => {
         navigation.navigate('SignIn');
     };
@@ -52,28 +51,40 @@ const SignUpPage = () => {
                     keyboardType="email-address"
                     autoCapitalize="none"
                 />
+                {/* First Column */}
+                <View style={styles.columnContainer}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="City"
+                        autoCapitalize="words"
+                    />
 
-                <TextInput
-                    style={styles.input}
-                    placeholder="Subcity/Zone"
-                    autoCapitalize="words"
-                />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Woreda"
+                        keyboardType="numeric"
+                    />
+                </View>
 
-                <TextInput
-                    style={styles.input}
-                    placeholder="Woreda"
-                    keyboardType="numeric"
-                />
+                {/* Second Column */}
+                <View style={styles.columnContainer}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Subcity/Zone"
+                        autoCapitalize="words"
+                    />
 
-                <TextInput
-                    style={styles.input}
-                    placeholder="Kebele"
-                    keyboardType="numeric"
-                />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Kebele"
+                        keyboardType="numeric"
+                    />
+                </View>
 
                 <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
                     <Text style={styles.registerButtonText}>Register</Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity style={styles.signInContainer} onPress={goToSignIn}>
                     <Text style={styles.signInText}>Already have an account?</Text>
                     <Text style={styles.signInLink}> Sign In</Text>
@@ -92,8 +103,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.3)', // Semi-transparent black background
-        padding: 20,
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        paddingBottom: 50,
     },
     title: {
         fontSize: 24,
@@ -136,6 +147,12 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontSize: 15,
     },
+    columnContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width:'49%',
+        gap: 8,
+        },
 });
 
 export default SignUpPage;

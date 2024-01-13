@@ -2,8 +2,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Platform, StatusBar, View } from 'react-native';
-import SignInPage from './screens/signIn/signIn.jsx';
-import SignUpPage from './screens/signup/signUp.js';
+import WelcomePage from './screens/welcomeScreen.js';
+import SignInPage from './screens/signIn.jsx';
+import SignUpPage from './screens/signUp.js';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +17,7 @@ export default function App() {
       />
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="SignIn"
+          initialRouteName="Welcome"
           screenOptions={{
             headerStyle: {
               backgroundColor: '#3498db',
@@ -28,6 +29,7 @@ export default function App() {
             },
           }}
         >
+          <Stack.Screen name="Welcome" component={WelcomePage} />
           <Stack.Screen name="SignIn" component={SignInPage} />
           <Stack.Screen name="SignUp" component={SignUpPage} />
         </Stack.Navigator>
